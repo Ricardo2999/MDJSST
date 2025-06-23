@@ -365,6 +365,60 @@
       flex-grow: 1; /* Para que o texto ocupe o espaço disponível */
     }
 
+    /* --- NOVOS ESTILOS PARA NOSSOS CLIENTES --- */
+    .clients-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Min-width para 3-4 colunas em telas maiores */
+        gap: 20px; /* Espaço entre os itens da grade */
+        margin-top: 30px;
+        text-align: center;
+    }
+
+    .client-item {
+        background-color: var(--light-bg);
+        padding: 15px; /* Ajustado para acomodar imagem e texto */
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.08); /* Sombra mais sutil */
+        color: var(--primary-color);
+        font-weight: 600; /* Texto mais forte */
+        font-size: 1em; /* Tamanho da fonte para o nome do cliente */
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        display: flex; /* Para centralizar o texto verticalmente se houver altura variável */
+        flex-direction: column; /* Empilha logo e nome */
+        align-items: center; /* Centraliza horizontalmente */
+        justify-content: center; /* Centraliza verticalmente (se houver espaço) */
+        min-height: 120px; /* Altura mínima para os itens (acomoda logo e nome) */
+    }
+
+    .client-item:hover {
+        transform: translateY(-5px); /* Efeito de levitar */
+        box-shadow: 0 6px 15px rgba(0,0,0,0.12); /* Sombra mais pronunciada no hover */
+        background-color: var(--white); /* Fundo branco no hover */
+        color: var(--secondary-color); /* Cor do texto muda no hover */
+    }
+
+    .client-item img {
+        max-width: 100px; /* Largura máxima para o logo */
+        max-height: 60px; /* Altura máxima para o logo */
+        object-fit: contain; /* Garante que o logo caiba sem cortar ou distorcer */
+        margin-bottom: 10px; /* Espaço entre o logo e o nome */
+        filter: grayscale(100%); /* Logos em escala de cinza por padrão */
+        opacity: 0.8; /* Levemente opaco */
+        transition: filter 0.3s ease, opacity 0.3s ease;
+    }
+
+    .client-item:hover img {
+        filter: grayscale(0%); /* Colorido no hover */
+        opacity: 1; /* Opacidade total no hover */
+    }
+
+    .client-item span {
+        display: block; /* Garante que o span ocupe toda a largura disponível */
+        margin-top: auto; /* Empurra o nome para a parte de baixo se a imagem for pequena */
+    }
+    /* --- FIM NOVOS ESTILOS --- */
+
+
     /* Contato */
     #contato {
       text-align: center;
@@ -499,6 +553,22 @@
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Duas colunas em tablets, ou 1 se o minmax não permitir 2 */
         gap: 25px;
       }
+
+      /* --- NOVOS ESTILOS PARA NOSSos CLIENTES --- */
+      .clients-grid {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); /* Mais estreito no mobile para logos e nomes */
+        gap: 15px;
+      }
+      .client-item {
+        font-size: 0.9em;
+        min-height: 100px; /* Ajustado para mobile */
+      }
+      .client-item img {
+        max-width: 80px;
+        max-height: 40px;
+        margin-bottom: 5px;
+      }
+      /* --- FIM NOVOS ESTILOS --- */
     }
 
     @media (max-width: 480px) {
@@ -538,6 +608,12 @@
       .profissional-card h3 {
         font-size: 1.4em;
       }
+
+      /* --- NOVOS ESTILOS PARA NOSSos CLIENTES --- */
+      .clients-grid {
+        grid-template-columns: 1fr; /* Uma coluna em mobile bem pequeno */
+      }
+      /* --- FIM NOVOS ESTILOS --- */
     }
   </style>
 </head>
@@ -552,10 +628,11 @@
 
 <nav id="main-nav">
   <div class="nav-links">
+    <a href="#nossos-profissionais">Nossos Profissionais</a>
+    <a href="#nossos-clientes">Nossos Clientes</a>
     <a href="#servicos-tecnicos">Serviços e Laudos</a>
     <a href="#documentos-licencas">Documentos e Licenças</a>
     <a href="#treinamentos">Treinamentos</a>
-    <a href="#nossos-profissionais">Nossos Profissionais</a>
     <a href="#contato">Contato</a>
   </div>
   <div class="hamburger-menu">
@@ -567,6 +644,133 @@
   <h1>ESPECIALISTAS EM SEGURANÇA DO TRABALHO</h1>
   <p>"Laudos, treinamentos e consultoria com excelência técnica, engenheiros renomados e confiabilidade de uma empresa com mais de 30 anos no mercado"</p>
   <a href="#contato" class="cta-button">Fale Conosco Agora!</a>
+</section>
+
+<!-- Nova Seção: Nossos Profissionais (MOVIDA PARA CIMA) -->
+<section class="section" id="nossos-profissionais">
+  <h2>NOSSOS PROFISSIONAIS</h2>
+  <div class="profissionais-grid">
+
+    <div class="profissional-card">
+      <img src="mario-damore-junior.jpg" alt="Foto de Mario D'Amore Junior" class="profissional-img" loading="lazy">
+      <h3>Mario D'Amore Junior</h3>
+      <p class="profissional-title">Engenheiro Mecânico e de Processos | Engenheiro de Segurança do Trabalho | Perito da Justiça do Trabalho</p>
+      <div class="profissional-description">
+        <p>Com vasta experiência em engenharia mecânica e de processos, Mario D'Amore Junior é um engenheiro de segurança do trabalho renomado e atua como perito da justiça do trabalho, oferecendo expertise técnica e legal em diversas áreas da segurança ocupacional.</p>
+      </div>
+    </div>
+
+    <div class="profissional-card">
+      <img src="paulo-fernando-damore.jpg" alt="Foto de Paulo Fernando D'Amore" class="profissional-img" loading="lazy">
+      <h3>Paulo Fernando D'Amore</h3>
+      <p class="profissional-title">Engenheiro Civil | Engenheiro de Segurança do Trabalho | Perito da Justiça do Trabalho | Instrutor Certificado</p>
+      <div class="profissional-description">
+        <p>Engenheiro civil e de segurança do trabalho, Paulo Fernando D'Amore é um perito atuante na justiça do trabalho e instrutor especializado em temas cruciais como trabalho em altura (NR 35), espaço confinado (NR 33), operação de empilhadeiras, transpaleteiras, plataformas elevatórias e pontes rolantes (NR 11).</p>
+      </div>
+    </div>
+
+    <div class="profissional-card">
+      <img src="renato-luis-damore.jpg" alt="Foto de Renato Luis D'Amore" class="profissional-img" loading="lazy">
+      <h3>Renato Luis D'Amore</h3>
+      <p class="profissional-title">Engenheiro Eletricista | Engenheiro de Segurança do Trabalho | Perito da Justiça do Trabalho | Instrutor NR 10</p>
+      <div class="profissional-description">
+        <p>Especialista em segurança elétrica, Renato Luis D'Amore é engenheiro eletricista, engenheiro de segurança do trabalho e perito da justiça do trabalho. Ele também é instrutor qualificado para cursos da NR 10, garantindo a segurança em instalações e serviços com eletricidade.</p>
+      </div>
+    </div>
+
+    <div class="profissional-card">
+      <img src="ricardo-luiz-molina.jpg" alt="Foto de Ricardo Luiz Molina" class="profissional-img" loading="lazy">
+      <h3>Ricardo Luiz Molina</h3>
+      <p class="profissional-title">Engenheiro de Produção | Engenheiro de Segurança do Trabalho | Especialista em Apreciação de Riscos em Máquinas | Higienista Ocupacional</p>
+      <div class="profissional-description">
+        <p>Engenheiro de produção e segurança do trabalho, Ricardo Luiz Molina possui vasta experiência em apreciação de riscos em máquinas (NR 12) e atua como higienista ocupacional, focando na prevenção e controle de agentes ambientais no ambiente de trabalho.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- NOVA SEÇÃO: NOSSOS CLIENTES (MOVIDA PARA CIMA) -->
+<section class="section" id="nossos-clientes">
+  <h2>NOSSOS CLIENTES</h2>
+  <div class="clients-grid">
+    <div class="client-item">
+      <img src="acrilex.jpg" alt="Logo Acrilex Tintas Especiais" loading="lazy">
+      <span>Acrilex Tintas Especiais</span>
+    </div>
+    <div class="client-item">
+      <img src="acosgranjo.jpg" alt="Logo Aços Granjo Soluções em Ferro e Aço" loading="lazy">
+      <span>Aços Granjo Soluções em Ferro e Aço</span>
+    </div>
+    <div class="client-item">
+      <img src="alumbra.jpg" alt="Logo Alumbra Produtos Elétricos e Eletrônicos" loading="lazy">
+      <span>Alumbra Produtos Elétricos e Eletrônicos</span>
+    </div>
+    <div class="client-item">
+      <img src="braganfer.jpg" alt="Logo Braganfer Indústria e Comércio de Ferro e Aço" loading="lazy">
+      <span>Braganfer Indústria e Comércio de Ferro e Aço</span>
+    </div>
+    <div class="client-item">
+      <img src="civilar.jpg" alt="Logo Civil ar equipamentos" loading="lazy">
+      <span>Civil ar equipamentos</span>
+    </div>
+    <div class="client-item">
+      <img src="ferrane.jpg" alt="Logo Ferrane Indústria Metalúrgica" loading="lazy">
+      <span>Ferrane Indústria Metalúrgica</span>
+    </div>
+    <div class="client-item">
+      <img src="flamex.jpg" alt="Logo Flamex, Comércio Importação e Exportação" loading="lazy">
+      <span>Flamex, Comércio Importação e Exportação</span>
+    </div>
+    <div class="client-item">
+      <img src="harmonia.jpg" alt="Logo Colégio Harmonia" loading="lazy">
+      <span>Colégio Harmonia</span>
+    </div>
+    <div class="client-item">
+      <img src="hms.jpg" alt="Logo HMS importação e comércio de produtos médicos" loading="lazy">
+      <span>HMS importação e comércio de produtos médicos</span>
+    </div>
+    <div class="client-item">
+      <img src="inaflex.jpg" alt="Logo Inaflex Indústria e Comércio" loading="lazy">
+      <span>Inaflex Indústria e Comércio</span>
+    </div>
+    <div class="client-item">
+      <img src="irbas.jpg" alt="Logo Irbas Indústria Automotiva" loading="lazy">
+      <span>Irbas Indústria Automotiva</span>
+    </div>
+    <div class="client-item">
+      <!-- Logotipo não fornecido, mantém apenas o nome -->
+      <span>JS Usinagem de Precisão</span>
+    </div>
+    <div class="client-item">
+      <img src="masticmol.jpg" alt="Logo Masticmol Indústria e Comércio" loading="lazy">
+      <span>Masticmol Indústria e Comércio</span>
+    </div>
+    <div class="client-item">
+      <img src="mzf4.jpg" alt="Logo MZF4 Fios Técnicos e Utilidades" loading="lazy">
+      <span>MZF4 Fios Técnicos e Utilidades</span>
+    </div>
+    <div class="client-item">
+      <img src="oxigen.jpg" alt="Logo Oxigen Produtos Especiais para Indústria" loading="lazy">
+      <span>Oxigen Produtos Especiais para Indústria</span>
+    </div>
+    <div class="client-item">
+      <img src="pinotti.jpg" alt="Logo Imobiliária Pinotti" loading="lazy">
+      <span>Imobiliária Pinotti</span>
+    </div>
+    <div class="client-item">
+      <img src="sam.jpg" alt="Logo Metalúrgica Sam" loading="lazy">
+      <span>Metalúrgica Sam</span>
+    </div>
+    <div class="client-item">
+      <img src="swisssteel.jpg" alt="Logo Swiss Steel Comércio de Ferro e Aço" loading="lazy">
+      <span>Swiss Steel Comércio de Ferro e Aço</span>
+    </div>
+    <div class="client-item">
+       <img src="schaeffler.jpg" alt="Logo Schaeffler do Brasil" loading="lazy">
+      <span>Schaeffler do Brasil</span>
+    </div>
+  </div>
 </section>
 
 <section class="section" id="servicos-tecnicos">
@@ -667,7 +871,7 @@
     <div class="item">
       <h3><span class="icon"><i class="fas fa-wave-square"></i></span> Higiene Ocupacional - Vibração (VMB e VCI) <span class="arrow"></span></h3>
       <div class="description">
-        <p>Avaliação com medidor triaxial tipo acelerômetro, identificando os riscos e as medidas de controle necessárias para a prevenção de doenças ocupacionais, conforme a NR-9.</p>
+        <p>Avaliação com medidor triaxial tipo acelerômetro, identificando os riscos e as medidas de controlenecessárias para a prevenção de doenças ocupacionais, conforme a NR-9.</p>
       </div>
     </div>
 
@@ -790,50 +994,6 @@
       <h3><span class="icon"><i class="fas fa-fire-extinguisher"></i></span> Treinamento de Brigada de Incêndio <span class="arrow"></span></h3>
       <div class="description">
         <p>Capacitação de equipes para atuar em situações de incêndio, incluindo prevenção, combate a princípios de incêndio, abandono de área e primeiros socorros. Essencial para a segurança da edificação e das pessoas, conforme Instrução Técnica (IT-17).</p>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- Nova Seção: Nossos Profissionais -->
-<section class="section" id="nossos-profissionais">
-  <h2>NOSSOS PROFISSIONAIS</h2>
-  <div class="profissionais-grid">
-
-    <div class="profissional-card">
-      <img src="mario-damore-junior.jpg" alt="Foto de Mario D'Amore Junior" class="profissional-img">
-      <h3>Mario D'Amore Junior</h3>
-      <p class="profissional-title">Engenheiro Mecânico e de Processos | Engenheiro de Segurança do Trabalho | Perito da Justiça do Trabalho</p>
-      <div class="profissional-description">
-        <p>Com vasta experiência em engenharia mecânica e de processos, Mario D'Amore Junior é um engenheiro de segurança do trabalho renomado e atua como perito da justiça do trabalho, oferecendo expertise técnica e legal em diversas áreas da segurança ocupacional.</p>
-      </div>
-    </div>
-
-    <div class="profissional-card">
-      <img src="paulo-fernando-damore.jpg" alt="Foto de Paulo Fernando D'Amore" class="profissional-img">
-      <h3>Paulo Fernando D'Amore</h3>
-      <p class="profissional-title">Engenheiro Civil | Engenheiro de Segurança do Trabalho | Perito da Justiça do Trabalho | Instrutor Certificado</p>
-      <div class="profissional-description">
-        <p>Engenheiro civil e de segurança do trabalho, Paulo Fernando D'Amore é um perito atuante na justiça do trabalho e instrutor especializado em temas cruciais como trabalho em altura (NR 35), espaço confinado (NR 33), operação de empilhadeiras, transpaleteiras, plataformas elevatórias e pontes rolantes (NR 11).</p>
-      </div>
-    </div>
-
-    <div class="profissional-card">
-      <img src="renato-luis-damore.jpg" alt="Foto de Renato Luis D'Amore" class="profissional-img">
-      <h3>Renato Luis D'Amore</h3>
-      <p class="profissional-title">Engenheiro Eletricista | Engenheiro de Segurança do Trabalho | Perito da Justiça do Trabalho | Instrutor NR 10</p>
-      <div class="profissional-description">
-        <p>Especialista em segurança elétrica, Renato Luis D'Amore é engenheiro eletricista, engenheiro de segurança do trabalho e perito da justiça do trabalho. Ele também é instrutor qualificado para cursos da NR 10, garantindo a segurança em instalações e serviços com eletricidade.</p>
-      </div>
-    </div>
-
-    <div class="profissional-card">
-      <img src="ricardo-luiz-molina.jpg" alt="Foto de Ricardo Luiz Molina" class="profissional-img">
-      <h3>Ricardo Luiz Molina</h3>
-      <p class="profissional-title">Engenheiro de Produção | Engenheiro de Segurança do Trabalho | Especialista em Apreciação de Riscos em Máquinas | Higienista Ocupacional</p>
-      <div class="profissional-description">
-        <p>Engenheiro de produção e segurança do trabalho, Ricardo Luiz Molina possui vasta experiência em apreciação de riscos em máquinas (NR 12) e atua como higienista ocupacional, focando na prevenção e controle de agentes ambientais no ambiente de trabalho.</p>
       </div>
     </div>
 
@@ -968,6 +1128,9 @@
         firstSection.classList.add('visible');
       }
     }
+
+    // Atualiza o ano no rodapé dinamicamente
+    document.querySelector('footer p').innerHTML = `&copy; ${new Date().getFullYear()} MDJ Engenharia - Segurança do Trabalho. Todos os direitos reservados.`;
   });
 </script>
 
